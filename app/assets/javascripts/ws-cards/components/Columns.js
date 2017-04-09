@@ -1,6 +1,7 @@
 var React = require('react')
 var PropTypes = require('react').PropTypes
 var Component = require('react').Component
+var Card = require('./Card')
 
 class Columns extends Component{
   componentDidMount(){
@@ -14,7 +15,13 @@ class Columns extends Component{
         <div
           key = {i}
         >
-          <h2>{col.test}</h2>
+          <h2>{col.name}</h2>
+          {col.cards.map((card, j) =>
+            <Card
+              index = {j}
+              card = {card}
+            />
+          )}
         </div>
       )}
       </div>
