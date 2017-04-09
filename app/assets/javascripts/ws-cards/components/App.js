@@ -1,8 +1,9 @@
 var React = require('react')
+var Board = require('../containers/Board')
 
 const App = () => (
   <div>
-    <span>Insert board here</span>
+    <Board />
   </div>
 )
 

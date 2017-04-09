@@ -12,8 +12,9 @@ var thunkMiddleware = require('redux-thunk').default
 var promise = require('redux-promise')
 
 var initialState = {
-  cards: []
+  columns: []
 }
+
 const loggerMiddleware = createLogger()
 
 let store = createStore(
