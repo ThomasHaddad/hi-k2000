@@ -4,6 +4,9 @@
   <strong>Title:</strong>
   <%= @board.title %>
 </p>
+<div id="content"></div>
+
+<%= javascript_include_tag('ws-cards/index.js') %>
 
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>
