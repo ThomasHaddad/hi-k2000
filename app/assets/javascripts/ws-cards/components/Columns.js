@@ -18,7 +18,7 @@ class Columns extends Component{
           <h2>{col.name}</h2>
           {col.cards.map((card, j) =>
             <Card
-              index = {j}
+              key = {j}
               card = {card}
             />
           )}
