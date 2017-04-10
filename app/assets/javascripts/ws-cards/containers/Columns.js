@@ -13,6 +13,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onLoadBoard: () =>{
       actions.fetchBoard(dispatch)
+    },
+    onMove: (source, target) =>{
+      dispatch(actions.moveCard(source, target))
+    },
+    onAttachToCol: (col, card) =>{
+      dispatch(actions.attachToCol(col, card))
     }
   }
 }

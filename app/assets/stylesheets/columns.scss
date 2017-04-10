@@ -1,3 +1,12 @@
 // Place all the styles related to the Columns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.col{
+  width: 25em;
+  display: inline-block;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  vertical-align: top;
+}

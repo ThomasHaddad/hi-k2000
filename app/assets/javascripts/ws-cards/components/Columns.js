@@ -1,9 +1,10 @@
 var React = require('react')
 var PropTypes = require('react').PropTypes
 var Component = require('react').Component
-var Card = require('./Card')
+var Column = require('./Column')
 
 class Columns extends Component{
+
   componentDidMount(){
     this.props.onLoadBoard()
   }
@@ -12,17 +13,13 @@ class Columns extends Component{
     return (
       <div>
       {this.props.columns.map((col, i) =>
-        <div
-          key = {i}
-        >
-          <h2>{col.name}</h2>
-          {col.cards.map((card, j) =>
-            <Card
-              key = {j}
-              card = {card}
-            />
-          )}
-        </div>
+        <Column
+          col={col}
+          index={i}
+          key={i}
+          onMove={(source, target) => this.props.onMove(source, target)}
+          onAttachToCol={(col, card) => this.props.onAttachToCol(col, card)}
+        />
       )}
       </div>
     )
