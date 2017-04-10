@@ -7,4 +7,8 @@ class BoardChannel < ApplicationCable::Channel
   def unsubscribed
   end
 
+  def submit(data)
+    ap "submit"
+    ActionCable.server.broadcast "board_channel", {state: data['state']}
+  end
 end

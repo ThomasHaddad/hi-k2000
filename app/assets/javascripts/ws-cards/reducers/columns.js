@@ -39,7 +39,7 @@ const columns = (state = [], action) => {
       targetColumn.cards = setPositions(targetColumn.cards)
       sourceColumn.cards = setPositions(sourceColumn.cards)
 
-      return state.map((col, i) => {
+      state = state.map((col, i) => {
         if (col.id == sourceColumn.id){
           return JSON.parse(JSON.stringify(sourceColumn))
         }else if(col.id == targetColumn.id){
@@ -48,6 +48,8 @@ const columns = (state = [], action) => {
           return col
         }
       })
+      App.room.submit(state)
+      return state
     default:
       return state
   }

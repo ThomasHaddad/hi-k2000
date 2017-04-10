@@ -1,26 +1,16 @@
 var connect = require('react-redux').connect
-var Columns = require('./Columns')
 var React = require('react')
-var Component = require('react').Component
+var actions = require('../actions')
+var Board = require('../components/Board')
 
-class Board extends Component {
-  componentDidMount() {
-
-    if (typeof App !== 'undefined'){
-      App.room = App.cable.subscriptions.create("BoardChannel", {
-        connected: function() {},
-        disconnected: function() {}
-      });
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onReceiveBoard: (json) =>{
+      dispatch(actions.receiveBoard({columns: json}))
     }
-  }
-
-  render() {
-    return (
-      <div>
-        <Columns/>
-      </div>
-    )
   }
 }
 
-module.exports = Board
+const BoardContainer = connect(null, mapDispatchToProps)(Board)
+
+module.exports = BoardContainer
