@@ -11,7 +11,7 @@ const columns = (state = [], action) => {
     case 'RECEIVE_BOARD':
       return [...action.json.columns]
     case 'ATTACH_TO_COLUMN':
-      return state.map((col, i) => {
+      state = state.map((col, i) => {
         if(col.id != action.col.id){
           col.cards = col.cards.filter(card => card.id != action.card.id)
         }else{
@@ -21,6 +21,8 @@ const columns = (state = [], action) => {
         col.cards = setPositions(col.cards)
         return Object.assign({}, col)
       })
+      App.room.submit(state)
+      return state
     case 'MOVE_CARD':
       const sourceColumn = _.find(state, col => col.id == action.source.column_id)
       const targetColumn = _.find(state, col => col.id == action.target.column_id)
