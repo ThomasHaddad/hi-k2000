@@ -14,7 +14,7 @@
     rake db:seed
 
 ## Usage
-Go to http://localhost:3000/boards/ and select an existing board
+Go to http://localhost:3000 and select the existing board
 
 ----
 ## thanks
